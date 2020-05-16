@@ -1,6 +1,6 @@
 // Set the date we're counting down to
 var getYear = new Date().getFullYear()+1;
-var countDownDate = new Date("Dec 5, "+ getYear +" 15:37:25").getTime();
+var countDownDate = new Date("May 16, "+ getYear +" 00:00:00").getTime();
 
 // Update the count down every 1 second
 var countdownfunction = setInterval(function() {
