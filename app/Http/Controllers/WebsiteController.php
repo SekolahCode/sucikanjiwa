@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class WebsiteController extends Controller
 {
@@ -13,7 +14,9 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        return view('website.index');
+        $question = Question::orderby('created_at')->paginate(5);
+        return view('website.index')
+            ->with('question',$question);
     }
 
     /**
