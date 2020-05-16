@@ -60,30 +60,33 @@
             </div>
 
             <div class="fq-comman-question-wrapper mt-5">
-                <h3>Upcoming .. </h3>
-                <div class="table-responsive">
-                    <table class="table mb-4">
-                        <caption>List of all Islamic Events this year</caption>
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Date</th>
-                                <th>Title</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($upcomingEvents as $key => $event)
-                                <tr>
-                                    <td class="text-center"> {{ $key }} </td>
-                                    <td class="text-center"> {{ $event->event_date->format('d F Y') }} </td>
-                                    <td class="text-primary"> {{ $event->title }} </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <div class="timeline-simple">
+                    <div class="row">
+                        <div class="col-lg-7">
+
+                        </div>
+                        <div class="col-lg-5">
+                            <p class="timeline-title">Upcoming ..</p>
+                            <div class="timeline-list">
+                                @foreach ($upcomingEvents as $key => $event)
+                                <div class="timeline-post-content">
+                                    <div class="user-profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                    </div>
+                                    <div class="">
+                                        <div class="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                            <h6 class="">{{ $event->event_date->format('d F Y') }}</h6>
+                                            <h5 class="post-text">{{ $event->title }} </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
 
             <div class="fq-tab-section">
                 <div class="row">

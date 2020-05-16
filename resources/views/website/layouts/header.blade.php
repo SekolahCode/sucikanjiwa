@@ -16,6 +16,7 @@
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{ asset('cork/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" /> 
+    <link href="{{ asset('cork/css/pages/faq/faq.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('cork/css/components/timeline/custom-timeline.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->     
 </head>

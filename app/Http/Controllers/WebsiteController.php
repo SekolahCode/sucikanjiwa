@@ -25,7 +25,7 @@ class WebsiteController extends Controller
 
         return view('website.index', [
             'countdownEvent'    => $events->first(),
-            'upcomingEvents'    => $events->forget(0)
+            'upcomingEvents'    => $events->forget(0),
             'question'          => $question
         ]);
     }
