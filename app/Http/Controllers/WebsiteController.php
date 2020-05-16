@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Modules\WebCrawler\WebCrawler as Crawler;
 
 class WebsiteController extends Controller
 {
@@ -13,6 +14,8 @@ class WebsiteController extends Controller
      */
     public function index()
     {
+        Crawler::crawlIslamicEvent();
+
         return view('website.index');
     }
 
