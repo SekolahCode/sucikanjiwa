@@ -26,7 +26,7 @@
             <div class="fq-comman-question-wrapper">
                 <div class="row">
                     <div class="col-md-12 widget-content widget-content-area text-center">
-                        <h3>Aidul Fitri Countdown</h3>
+                        <h3> {{ $countdownEvent->title }} </h3>
                         
                             <div id="cd-simple">
                                 <div class="countdown">
@@ -56,6 +56,31 @@
                             </div>
                        
                     </div>
+                </div>
+            </div>
+
+            <div class="fq-comman-question-wrapper mt-5">
+                <h3>Upcoming .. </h3>
+                <div class="table-responsive">
+                    <table class="table mb-4">
+                        <caption>List of all Islamic Events this year</caption>
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Date</th>
+                                <th>Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($upcomingEvents as $key => $event)
+                                <tr>
+                                    <td class="text-center"> {{ $key }} </td>
+                                    <td class="text-center"> {{ $event->event_date->format('d F Y') }} </td>
+                                    <td class="text-primary"> {{ $event->title }} </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
 

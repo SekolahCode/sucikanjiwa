@@ -18,8 +18,11 @@ class WebsiteController extends Controller
     {
         Crawler::crawlIslamicEvent();
 
+        $events = Event::whereDate('event_date', '>', Carbon::today())->get();
+
         return view('website.index', [
-            'upcomingEvents'    => Event::whereDate('event_date', '>', Carbon::today())->get()
+            'countdownEvent'    => $events->first(),
+            'upcomingEvents'    => $events->forget(0)
         ]);
     }
 
