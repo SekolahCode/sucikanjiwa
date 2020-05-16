@@ -7,11 +7,26 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObserver;
+use Carbon\Carbon;
 use App\Event;
 
 class IslamicEventCrawlObservers extends CrawlObserver
 {
     private $importantDates;
+    private const MONTH = [
+        'Januari'   => 'January',
+        'Februari'  => 'February',
+        'Mac'       => 'March',
+        'April'     => 'April',
+        'Mei'       => 'May',
+        'Jun'       => 'June',
+        'Julai'     => 'July',
+        'Ogos'      => 'August',
+        'September' => 'September',
+        'Oktober'   => 'October',
+        'November'  => 'November',
+        'Disember'  => 'December'
+    ];
 
     /**
      * Called when the crawler has crawled the given url successfully.
@@ -29,8 +44,9 @@ class IslamicEventCrawlObservers extends CrawlObserver
         $importantDates = [];
         foreach ($tableRow as $row) {
             if (! empty($row->getElementsByTagName('td')[0]) && ! empty($row->getElementsByTagName('td')[1])) {
+
                 $importantDates[] = [
-                    'date'  => $row->getElementsByTagName('td')[0]->nodeValue,
+                    'date'  => $this->convertDateToCarbon($row->getElementsByTagName('td')[0]->nodeValue),
                     'title' => $row->getElementsByTagName('td')[1]->nodeValue
                 ];
             }
@@ -57,10 +73,21 @@ class IslamicEventCrawlObservers extends CrawlObserver
     public function finishedCrawling() 
     {
         foreach ($this->importantDates as $event) {
-            Event::updateOrCreate([
-                'event_date' => $event['date'],
-                'title'      => $event['title']
-            ]);
+            $found = Event::whereDate('event_date', '=', $event['date'])->where('title', $event['title'])->first();
+            if (! $found) {
+                Event::Create([
+                    'event_date' => $event['date'],
+                    'title'      => $event['title']
+                ]);
+            }
         }
+    }
+
+    public function convertDateToCarbon(String $date)
+    {
+        $explodedDate = explode(' ', $date);
+        $month = self::MONTH[$explodedDate[1]];
+
+        return Carbon::createFromFormat('d F Y', sprintf('%s %s %s', $explodedDate[0], $month, $explodedDate[2]));
     }
 }
