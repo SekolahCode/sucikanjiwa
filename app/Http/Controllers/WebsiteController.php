@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Modules\WebCrawler\WebCrawler as Crawler;
+use Carbon\Carbon;
+use App\Event;
+
 
 class WebsiteController extends Controller
 {
@@ -15,8 +19,15 @@ class WebsiteController extends Controller
     public function index()
     {
         $question = Question::orderby('created_at')->paginate(5);
-        return view('website.index')
-            ->with('question',$question);
+        Crawler::crawlIslamicEvent();
+
+        $events = Event::whereDate('event_date', '>', Carbon::today())->get();
+
+        return view('website.index', [
+            'countdownEvent'    => $events->first(),
+            'upcomingEvents'    => $events->forget(0)
+            'question'          => $question
+        ]);
     }
 
     /**
