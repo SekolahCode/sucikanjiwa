@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Modules\WebCrawler\WebCrawler as Crawler;
+use Carbon\Carbon;
+use App\Event;
 
 class WebsiteController extends Controller
 {
@@ -13,7 +16,14 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        return view('website.index');
+        Crawler::crawlIslamicEvent();
+
+        $events = Event::whereDate('event_date', '>', Carbon::today())->get();
+
+        return view('website.index', [
+            'countdownEvent'    => $events->first(),
+            'upcomingEvents'    => $events->forget(0)
+        ]);
     }
 
     /**
