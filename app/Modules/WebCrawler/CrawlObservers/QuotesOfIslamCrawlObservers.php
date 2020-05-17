@@ -71,7 +71,7 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
      */
     public function crawlFailed(UriInterface $url, RequestException $requestException, ?UriInterface $foundOnUrl = null)
     {
-
+        Log::info('failed');
     }
 
     /**
@@ -82,6 +82,5 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
         foreach ($this->quotes as $value) {
             Quote::updateOrCreate(['quotes'=>$value['quotes']],$value);
         }
-        
     }
 }
