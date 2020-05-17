@@ -49,7 +49,6 @@ class WebCrawler
             'https://technobb.com/100-inspirational-islamic-quotes-with-beautiful-images/'
         ];
 
-
         foreach ($urls as $url) {
             Crawler::create()
                 ->setCrawlObservers([new QuotesOfIslamCrawlObservers])
