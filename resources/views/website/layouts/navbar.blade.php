@@ -8,22 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Dashboard</a>
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Article</a>
+                    <a class="nav-link" href="index.html">Articles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Quotes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="pages_contact_us.html">Contact Us</a>
+                    <a class="nav-link" href="index.html">Questions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Ask Question</a>
+                    <a class="nav-link" target="_blank" href="pages_contact_us.html">Contact Us</a>
                 </li>
             </ul>
         </div>

@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-6 align-self-center order-md-0 order-1">
                     <h1 class="">Sucikan Jiwa</h1>
-                    <p class="">We are compiling all those articles and videos regarding to islam.</p>
+                    <p class="">We are compiling articles, quotes and questions regarding to islam.</p>
                     <button class="btn">More Details</button>
                 </div>
                 <div class="col-md-6 order-md-0 order-0">
@@ -27,7 +27,6 @@
                 <div class="row">
                     <div class="col-md-12 widget-content widget-content-area text-center">
                         <h3> {{ $countdownEvent->title }} </h3>
-                        
                             <div id="cd-simple">
                                 <div class="countdown">
                                     <div class="clock-count-container">
@@ -54,7 +53,7 @@
                                     <h4 class="clock-text"> Sec </h4>
                                 </div>
                             </div>
-                       
+                        <input type="hidden" id="event_date" value="{{ $countdownEvent->event_date }}">
                     </div>
                 </div>
             </div>
@@ -196,9 +195,9 @@
                     <div class="col-lg-4 col-md-6 mb-lg-0 mb-4">
                         <div class="card component-card_5" style="height:12rem">
                             <div class="card-body">
-                                <p class="card-text">{{$quote->quotes}}</p>
+                                <p class="card-text" style="color:white">{{$quote->quotes}}</p>
                                 <div class="user-info">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
                                     <div class="media-body">
                                         <h5 class="card-user_name">{{ $quote->author }}</h5>
                                     </div>

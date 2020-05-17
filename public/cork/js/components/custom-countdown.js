@@ -1,4 +1,6 @@
-$('#cd-simple').countdown('2020/10/10', function(event) {
+var eventDate = $("#event_date").val()
+
+$('#cd-simple').countdown(eventDate, function(event) {
   var $this = $(this).html(event.strftime(''
     +'<div class="countdown">'+
         '<div class="clock-count-container">'+
