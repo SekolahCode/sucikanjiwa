@@ -4,6 +4,10 @@ namespace App\Modules\WebCrawler;
 
 use Spatie\Crawler\Crawler;
 use App\Modules\WebCrawler\CrawlObservers\IslamicEventCrawlObservers;
+use App\Modules\WebCrawler\CrawlObservers\IslamicQuestionCrawlObservers;
+use App\Modules\WebCrawler\CrawlObservers\QuestionDescriptionCrawlObservers;
+use App\Modules\WebCrawler\CrawlObservers\QuotesOfIslamCrawlObrservers;
+use App\Question;
 
 class WebCrawler
 {
@@ -15,5 +19,43 @@ class WebCrawler
             ->setMaximumCrawlCount(1)
             ->ignoreRobots() 
             ->startCrawling($url);
+    }
+
+    public static function crawlCommonIslamicQuestion(){
+        $url = 'https://aboutislam.net/reading-islam/understanding-islam/50-common-questions-new-muslims-ask/';
+        Crawler::create()
+            ->setCrawlObservers([new IslamicQuestionCrawlObservers])
+            ->setMaximumCrawlCount(1)
+            ->ignoreRobots() 
+            ->startCrawling($url);
+    }
+
+    public static function crawlQuestionDescription(){
+        $urls = Question::pluck('url');
+
+        foreach ($urls as $url) {
+            Crawler::create()
+                ->setCrawlObservers([new QuestionDescriptionCrawlObservers])
+                ->setMaximumCrawlCount(1)
+                ->ignoreRobots() 
+                ->startCrawling($url);
+        }
+    }
+
+    public static function crawlQuotesOfIslam(){
+        $url = [
+            'http://quotesofislam.com/islamic-quotes/',
+            'http://quotesofislam.com/islamic-quotes-part-2/',
+            'https://technobb.com/100-inspirational-islamic-quotes-with-beautiful-images/'
+        ];
+
+
+        foreach ($urls as $url) {
+            Crawler::create()
+                ->setCrawlObservers([new QuotesOfIslamCrawlObservers])
+                ->setMaximumCrawlCount(1)
+                ->ignoreRobots() 
+                ->startCrawling($url);
+        }
     }
 }

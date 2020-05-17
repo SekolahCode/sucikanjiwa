@@ -18,24 +18,16 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        $date = carbon::today();
-        
         $question = Question::orderby('created_at')->paginate(5);
         Crawler::crawlIslamicEvent();
 
         $events = Event::whereDate('event_date', '>', Carbon::today())->get();
 
-        if($date > $datetime = new Carbon('2021-05-16 00:00:00') || App::environment() == 'local')
-        {
-            return view('website.index', [
-                'countdownEvent'    => $events->first(),
-                'upcomingEvents'    => $events->forget(0),
-                'question'          => $question
-            ]);
-        } else {
-            return view('website.comingsoon');
-        }
-        
+        return view('website.index', [
+            'countdownEvent'    => $events->first(),
+            'upcomingEvents'    => $events->forget(0),
+            'question'          => $question
+        ]);
     }
 
     /**

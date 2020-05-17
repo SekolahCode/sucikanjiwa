@@ -30,4 +30,6 @@ Route::get('/admin/profile','Admin\ProfileController@index')->name('show.profile
 
 
 // Website
+Route::view('/coming-soon', 'website.comingsoon');
 Route::get('/','WebsiteController@index')->name('index');
+Route::get('/question','QuestionController@index')->name('question');
