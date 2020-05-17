@@ -48,7 +48,6 @@ class WebCrawler
             'http://quotesofislam.com/islamic-quotes-part-2/',
         ];
 
-
         foreach ($urls as $url) {
             Crawler::create()
                 ->setCrawlObservers([new QuotesOfIslamCrawlObservers])
