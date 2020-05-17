@@ -41,18 +41,14 @@ class IslamicEventCrawlObservers extends CrawlObserver
         @$doc->loadHTML($response->getBody());
         $tableRow = $doc->getElementsByTagName("tr");
 
-        $importantDates = [];
         foreach ($tableRow as $row) {
             if (! empty($row->getElementsByTagName('td')[0]) && ! empty($row->getElementsByTagName('td')[1])) {
-
-                $importantDates[] = [
+                $this->importantDates[] = [
                     'date'  => $this->convertDateToCarbon($row->getElementsByTagName('td')[0]->nodeValue),
                     'title' => $row->getElementsByTagName('td')[1]->nodeValue
                 ];
             }
         };
-
-        $this->importantDates = $importantDates;
     }
 
     /**
