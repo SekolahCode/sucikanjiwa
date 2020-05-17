@@ -23,7 +23,6 @@ class WebsiteController extends Controller
 
         $events = Event::whereDate('event_date', '>', Carbon::today())->get();
 
-        
         return view('website.index', [
             'countdownEvent'    => $events->first(),
             'upcomingEvents'    => $events->forget(0),

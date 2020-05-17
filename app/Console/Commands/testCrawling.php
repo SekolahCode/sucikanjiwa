@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Http\Controllers\Crawler\QuestionController;
+use App\Modules\WebCrawler\WebCrawler as Crawler;
 
 class testCrawling extends Command
 {
@@ -37,10 +38,7 @@ class testCrawling extends Command
      * @return mixed
      */
     public function handle()
-    {
-        $link       = 'https://aboutislam.net/reading-islam/understanding-islam/50-common-questions-new-muslims-ask/';
-        $question   = new QuestionController();
-
-        $question->assign($link);
+    {   
+        Crawler::crawlCommonIslamicQuestion();
     }
 }
