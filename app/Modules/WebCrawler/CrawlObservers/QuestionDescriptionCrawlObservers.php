@@ -14,6 +14,7 @@ use Log;
 class QuestionDescriptionCrawlObservers extends CrawlObserver
 {
     private $descriptions;
+
     /**
      * Called when the crawler has crawled the given url successfully.
      *
@@ -24,23 +25,18 @@ class QuestionDescriptionCrawlObservers extends CrawlObserver
     public function crawled(UriInterface $url, ResponseInterface $response, ?UriInterface $foundOnUrl = null) 
     {
         $doc = new DOMDocument();
-
         @$doc->loadHTML($response->getBody());
+        $div = $doc->getElementsByTagName("div");
 
-        $div            = $doc->getElementsByTagName("div");
-        $className      = 'main-question-block';
-        $newQuestion    = null;
         foreach ($div as $value) {
-            
-            if(stripos($value->getAttribute('class'), $className) !== false){
+            if(stripos($value->getAttribute('class'), 'main-question-block') !== false){
                 $question       = str_replace("Q","",$value->textContent);
-                $newQuestion    = [
+                $this->descriptions    = [
                     'question'  => trim(preg_replace('/\n+/', '', $question)),
                     'url'       => $url
                 ];
             }
         }
-        $this->descriptions = $newQuestion;
     }
 
     /**
@@ -61,8 +57,8 @@ class QuestionDescriptionCrawlObservers extends CrawlObserver
     public function finishedCrawling() 
     {   
         Question::where('url', $this->descriptions['url'])
-                ->update([
-                    'question' => $this->descriptions['question'],
-                ]);
+            ->update([
+                'question' => $this->descriptions['question'],
+            ]);
     }
 }

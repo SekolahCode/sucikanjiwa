@@ -13,7 +13,8 @@ use Log;
 
 class IslamicQuestionCrawlObservers extends CrawlObserver
 {
-    private $questions;
+    private $questions = [];
+
     /**
      * Called when the crawler has crawled the given url successfully.
      *
@@ -24,24 +25,18 @@ class IslamicQuestionCrawlObservers extends CrawlObserver
     public function crawled(UriInterface $url, ResponseInterface $response, ?UriInterface $foundOnUrl = null) 
     {
         $doc = new DOMDocument();
-
         @$doc->loadHTML($response->getBody());
-
         $a = $doc->getElementsByTagName("a");
         
         $arrayQuestion = [];
-
         foreach ($a as $item) {
-
             if(strpos($item->textContent, '?') !== false && strpos($item->getAttribute('href'), 'https') !== false){
-
-                    $arrayQuestion[] = [
-                        'title'     => $item->textContent,
-                        'url'       => $item->getAttribute('href'),
-                    ];
+                $this->questions[] = [
+                    'title'     => $item->textContent,
+                    'url'       => $item->getAttribute('href'),
+                ];
             }
         }
-        $this->questions = $arrayQuestion;
     }
 
     /**
