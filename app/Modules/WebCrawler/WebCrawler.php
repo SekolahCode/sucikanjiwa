@@ -6,7 +6,7 @@ use Spatie\Crawler\Crawler;
 use App\Modules\WebCrawler\CrawlObservers\IslamicEventCrawlObservers;
 use App\Modules\WebCrawler\CrawlObservers\IslamicQuestionCrawlObservers;
 use App\Modules\WebCrawler\CrawlObservers\QuestionDescriptionCrawlObservers;
-use App\Modules\WebCrawler\CrawlObservers\QuotesOfIslamCrawlObrservers;
+use App\Modules\WebCrawler\CrawlObservers\QuotesOfIslamCrawlObservers;
 use App\Question;
 
 class WebCrawler
@@ -43,10 +43,9 @@ class WebCrawler
     }
 
     public static function crawlQuotesOfIslam(){
-        $url = [
+        $urls = [
             'http://quotesofislam.com/islamic-quotes/',
             'http://quotesofislam.com/islamic-quotes-part-2/',
-            'https://technobb.com/100-inspirational-islamic-quotes-with-beautiful-images/'
         ];
 
         foreach ($urls as $url) {
