@@ -3,6 +3,7 @@
 namespace App\Modules\WebCrawler;
 
 use Spatie\Crawler\Crawler;
+use App\Modules\WebCrawler\CrawlObservers\IslamicArticleCrawlObservers;
 use App\Modules\WebCrawler\CrawlObservers\IslamicEventCrawlObservers;
 use App\Modules\WebCrawler\CrawlObservers\IslamicQuestionCrawlObservers;
 use App\Modules\WebCrawler\CrawlObservers\QuestionDescriptionCrawlObservers;
@@ -51,6 +52,21 @@ class WebCrawler
         foreach ($urls as $url) {
             Crawler::create()
                 ->setCrawlObservers([new QuotesOfIslamCrawlObservers])
+                ->setMaximumCrawlCount(1)
+                ->ignoreRobots() 
+                ->startCrawling($url);
+        }
+    }
+
+    public static function crawlArticlesIslamic(){
+        $urls = [
+            'https://backtojannah.com/',
+            'https://backtojannah.com/page/2/'
+        ];
+
+        foreach ($urls as $url) {
+            Crawler::create()
+                ->setCrawlObservers([new IslamicArticleCrawlObservers])
                 ->setMaximumCrawlCount(1)
                 ->ignoreRobots() 
                 ->startCrawling($url);

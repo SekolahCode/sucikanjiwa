@@ -7,15 +7,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObserver;
-<<<<<<< HEAD
-use App\Question;
-use DOMDocument;
-use Log;
-
-class QuotesOfIslamCrawlObserver extends CrawlObserver
-{
-    private $quotes;
-=======
 use App\Quote;
 use DOMDocument;
 
@@ -30,7 +21,6 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
                         |You May Like|about islam|good job|alhamdulillah|jezakumulah|mashaallaah|of course|
                         |something went wrong|you may like|love it| 
                     )';
->>>>>>> c578f2213cf1c453cdd4b6f9944b6d7986b0cd66
     /**
      * Called when the crawler has crawled the given url successfully.
      *
@@ -47,11 +37,6 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
         $p            = $doc->getElementsByTagName("p");
         $newQuotes    = [];
         foreach ($p as $value) {
-<<<<<<< HEAD
-            dd($value->textContent);
-        }
-       
-=======
             if(!empty($value->textContent) && $value->textContent != ' ' && $value->textContent != null){
 
                 if(preg_match($this->regex,strtolower($value->textContent)) !==1){
@@ -75,7 +60,6 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
             }
         }
         $this->quotes = $newQuotes;
->>>>>>> c578f2213cf1c453cdd4b6f9944b6d7986b0cd66
     }
 
     /**
@@ -87,11 +71,7 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
      */
     public function crawlFailed(UriInterface $url, RequestException $requestException, ?UriInterface $foundOnUrl = null)
     {
-<<<<<<< HEAD
-        Log::info('failed');
-=======
 
->>>>>>> c578f2213cf1c453cdd4b6f9944b6d7986b0cd66
     }
 
     /**
@@ -99,12 +79,8 @@ class QuotesOfIslamCrawlObservers extends CrawlObserver
      */
     public function finishedCrawling() 
     {   
-<<<<<<< HEAD
-=======
         foreach ($this->quotes as $value) {
             Quote::updateOrCreate(['quotes'=>$value['quotes']],$value);
         }
->>>>>>> c578f2213cf1c453cdd4b6f9944b6d7986b0cd66
-        
     }
 }
