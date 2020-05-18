@@ -7,12 +7,14 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\RequestException;
 use Spatie\Crawler\CrawlObserver;
+use App\Article;
 use DOMDocument;
 
 class IslamicArticleCrawlObservers extends CrawlObserver
 {
     private $articles;
-
+    private $regex = '(continue|reading|\n|contribute|submit|menu|articles|previous|youtube|facebook|downloads|instagram|click|directory|backtojannah|name|twitter|back|home|privacy|help|contact)';
+    private $images;
     /**
      * Called when the crawler has crawled the given url successfully.
      *
@@ -25,19 +27,40 @@ class IslamicArticleCrawlObservers extends CrawlObserver
         $doc = new DOMDocument();
 
         @$doc->loadHTML($response->getBody());
+        
+        $a              = $doc->getElementsByTagName("a");
+        $div            = $doc->getElementsByTagName("div");
 
-        $a = $doc->getElementsByTagName("a");
-        $newArticles = [];
-        foreach ($a as $value) {
+        $newArticles    = [];
+        $images         = [];
 
-            if(!empty($value->textContent)){
+        foreach ($div as $item) {
+            
+            foreach ($item->childNodes as $value) {
+
+                if ( $value->nodeName == 'img' ) {
+                    $images[] = [
+                        'images'   => $value->getAttribute('src')
+                    ];
+                }
+            }
+        }
+
+        $this->images = $images;
+        $i = 0;
+        foreach ($a as $key => $value) {
+            
+            if(stripos($value->getAttribute('id'), 'featured-thumbnail') !== false){
+
                 $newArticles[] = [
-                    'title'    => $value->textContent
+                    'title'    => $value->getAttribute('title'),
+                    'url'      => $value->getAttribute('href'),
+                    'url_image'    => $this->images[$i++]['images']
                 ];
             }
         }
+
         $this->articles = $newArticles;
-        dd($this->articles);
     }
 
     /**
@@ -57,7 +80,8 @@ class IslamicArticleCrawlObservers extends CrawlObserver
      */
     public function finishedCrawling() 
     {   
-
-        
+        foreach ($this->articles as $value) {
+            Article::updateOrCreate(['title'=>$value['title']],$value);
+        }
     }
 }

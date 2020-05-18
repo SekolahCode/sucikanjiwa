@@ -93,53 +93,24 @@
                     <h2>Popular Article</h2>
                         <div id="style1" class="carousel slide style-custom-1" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#style1" data-slide-to="0" class="active"></li>
-                                <li data-target="#style1" data-slide-to="1"></li>
-                                <li data-target="#style1" data-slide-to="2"></li>
+                                @foreach($articles as $key => $article)
+                                    <li data-target="#style1" data-slide-to="{{ $key }}" class="@if($key == 0) active @endif"></li>
+                                @endforeach
                             </ol>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100 slide-image" src="assets/img/600x300.jpg" alt="First slide">
+                                @foreach($articles as $key => $article)
+                                <div class="carousel-item @if($key == 0) active @endif">
+                                    <a href="{{ $article->url }}" target="blank">
+                                    <img class="d-block w-100 slide-image" src="{{ $article->url_image }}" style="width:600px;height:500px">
                                     <div class="carousel-caption">
-                                        <span class="badge">Lifestyle</span>
-                                        <h3>How To Make More Blog By Doing Less</h3>
-                                        <div class="media">
-                                            <img src="assets/img/90x90.jpg" class="" alt="avatar">
-                                            <div class="media-body">
-                                                <h6 class="user-name">User name</h6>
-                                                <p class="meta-time"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Jan, 14 2020</p>
-                                            </div>
+                                        <span class="badge">Articles</span>
+                                        <div class="badge" style="background-color: rgba(192, 129, 192, 0.5);">
+                                            <h3 style="color:white">{{ $article->title }}</h3>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 slide-image" src="assets/img/600x300.jpg" alt="Second slide">
-                                    <div class="carousel-caption">
-                                        <span class="badge">Lifestyle</span>
-                                        <h3>How To Make Blog</h3>
-                                        <div class="media">
-                                            <img src="assets/img/90x90.jpg" class="" alt="avatar">
-                                            <div class="media-body">
-                                                <h6 class="user-name">User name</h6>
-                                                <p class="meta-time"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Jan, 14 2020</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 slide-image" src="assets/img/600x300.jpg" alt="Third slide">
-                                    <div class="carousel-caption">
-                                        <span class="badge">Lifestyle</span>
-                                        <h3>Best Blog Android Apps</h3>
-                                        <div class="media">
-                                            <img src="assets/img/90x90.jpg" class="" alt="avatar">
-                                            <div class="media-body">
-                                                <h6 class="user-name">User name</h6>
-                                                <p class="meta-time"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Jan, 14 2020</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <a class="carousel-control-prev" href="#style1" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

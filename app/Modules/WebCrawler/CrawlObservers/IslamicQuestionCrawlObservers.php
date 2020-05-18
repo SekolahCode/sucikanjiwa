@@ -57,7 +57,7 @@ class IslamicQuestionCrawlObservers extends CrawlObserver
     public function finishedCrawling() 
     {
         foreach ($this->questions as $question) {
-            Question::create([
+            Question::updateOrCreate(['title'=>$question['title']],[
                 'title'     => $question['title'],
                 'url'       => $question['url'],
                 'question'  => null
