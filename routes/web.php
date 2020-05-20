@@ -32,8 +32,12 @@ Route::get('/admin/profile','Admin\ProfileController@index')->name('show.profile
 // Website
 Route::view('/coming-soon', 'website.comingsoon');
 Route::get('/','WebsiteController@index')->name('index');
-
 Route::get('/question','QuestionController@index')->name('question');
-
 Route::get('/quotes','QuestionController@index')->name('quotes');
+Route::get('/articles','ArticleController@index')->name('quotes');
+
+
+// Crawler
+Route::get('/question/crawl','QuestionController@crawlQuestion');
 Route::get('/quotes/crawl','QuotesController@crawlQuotes');
+Route::get('/articles/crawl','ArticleController@crawlArticle');

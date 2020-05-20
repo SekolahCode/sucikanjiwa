@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Modules\WebCrawler\WebCrawler as Crawler;
 use Carbon\Carbon;
 
+use App\Article;
 use App\Event;
 use App\Question;
 use App\Quote;
@@ -26,12 +27,14 @@ class WebsiteController extends Controller
         $questions      = Question::whereNotNull('question')->orderby('created_at')->limit(5)->get();
         $quotes         = Quote::whereNotNull('quotes')->orderby('created_at')->limit(3)->get();
         $events         = Event::whereDate('event_date', '>', Carbon::today())->get();
+        $articles       = Article::orderby('created_at')->limit(3)->get();
 
         return view('website.index', [
             'countdownEvent'    => $events->first(),
             'upcomingEvents'    => $events->forget(0),
             'questions'         => $questions,
-            'quotes'            => $quotes
+            'quotes'            => $quotes,
+            'articles'          => $articles
         ]);
     }
 
