@@ -39,8 +39,8 @@ class testCrawling extends Command
      */
     public function handle()
     {   
-        // Crawler::crawlArticlesIslamic();
-        // Crawler::crawlCommonIslamicQuestion();
+        Crawler::crawlArticlesIslamic();
+        Crawler::crawlCommonIslamicQuestion();
         Crawler::crawlQuestionDescription();
         Crawler::crawlQuotesOfIslam();
     }
