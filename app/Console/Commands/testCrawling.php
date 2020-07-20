@@ -39,6 +39,7 @@ class testCrawling extends Command
      */
     public function handle()
     {   
+        // need to execute this first
         Crawler::crawlArticlesIslamic();
         Crawler::crawlCommonIslamicQuestion();
         Crawler::crawlQuestionDescription();
