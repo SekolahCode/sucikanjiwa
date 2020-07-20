@@ -67,7 +67,7 @@
                                     <div class="widget-header">                                
                                         <div class="row">
                                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                <h4>With captions</h4> 
+                                                <h4>Beautiful Picture</h4> 
                                             </div>
                                         </div>
                                     </div>
