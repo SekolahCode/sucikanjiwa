@@ -8,19 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Articles</a>
+                    <a class="nav-link" href="#">About Us</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="index.html">Quotes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Questions</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="pages_contact_us.html">Contact Us</a>
+                    <a class="nav-link" href="#">Contact Us</a>
                 </li>
             </ul>
         </div>

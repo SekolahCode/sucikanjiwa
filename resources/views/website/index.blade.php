@@ -62,7 +62,47 @@
                 <div class="timeline-simple">
                     <div class="row">
                         <div class="col-lg-7">
-
+                            <div id="with_captions" class="col-lg-12 col-md-12 layout-spacing">
+                                <div class="statbox widget box box-shadow">
+                                    <div class="widget-header">                                
+                                        <div class="row">
+                                            <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                <h4>With captions</h4> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-content widget-content-area p-2">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img class="d-block w-100" src="{{ asset('custom/img/masjid1.jpg')}}" alt="First slide" style="max-height:400px;max-width:550px">
+                                                            
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img class="d-block w-100" src="{{ asset('custom/img/masjid2.jpg')}}" alt="Second slide" style="max-height:400px;max-width:550px">
+                                                            
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img class="d-block w-100" src="{{ asset('custom/img/masjid3.jpg')}}" alt="Third slide" style="max-height:400px;max-width:550px">
+                                                            
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img class="d-block w-100" src="{{ asset('custom/img/masjid4.jpg')}}" alt="Fourth slide" style="max-height:400px;max-width:550px">
+                                                            
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img class="d-block w-100" src="{{ asset('custom/img/masjid5.jpg')}}" alt="Fifth slide" style="max-height:400px;max-width:550px">
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-5">
                             <p class="timeline-title">Upcoming ..</p>

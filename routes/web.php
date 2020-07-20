@@ -34,7 +34,7 @@ Route::view('/coming-soon', 'website.comingsoon');
 Route::get('/','WebsiteController@index')->name('index');
 Route::get('/question','QuestionController@index')->name('question');
 Route::get('/quotes','QuestionController@index')->name('quotes');
-Route::get('/articles','ArticleController@index')->name('quotes');
+Route::get('/articles','ArticleController@index')->name('articles');
 
 
 // Crawler
