@@ -13,7 +13,7 @@ class testCrawling extends Command
      *
      * @var string
      */
-    protected $signature = 'crawl:question';
+    protected $signature = 'crawl:data';
 
     /**
      * The console command description.
@@ -39,6 +39,9 @@ class testCrawling extends Command
      */
     public function handle()
     {   
-        Crawler::crawlCommonIslamicQuestion();
+        // Crawler::crawlArticlesIslamic();
+        // Crawler::crawlCommonIslamicQuestion();
+        Crawler::crawlQuestionDescription();
+        Crawler::crawlQuotesOfIslam();
     }
 }

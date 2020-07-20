@@ -56,9 +56,11 @@ class QuestionDescriptionCrawlObservers extends CrawlObserver
      */
     public function finishedCrawling() 
     {   
-        Question::where('url', $this->descriptions['url'])
-            ->update([
-                'question' => $this->descriptions['question'],
-            ]);
+        if($this->descriptions != null){
+            Question::where('url', $this->descriptions['url'])
+                ->update([
+                    'question' => $this->descriptions['question'],
+                ]);
+        }
     }
 }

@@ -14,6 +14,6 @@ class ArticleController extends Controller
 
     public function crawlArticle(){
         
-        dd(Crawler::crawlArticlesIslamic());
+        Crawler::crawlArticlesIslamic();
     }
 }
