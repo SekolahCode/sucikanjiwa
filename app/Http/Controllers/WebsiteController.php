@@ -24,7 +24,7 @@ class WebsiteController extends Controller
         
         Crawler::crawlIslamicEvent();
 
-        $questions      = Question::whereNotNull('question')->orderby('created_at')->limit(5)->get();
+        $questions      = Question::whereNotNull('question')->orderby('created_at')->limit(4)->get();
         $quotes         = Quote::whereNotNull('quotes')->orderby('created_at')->limit(3)->get();
         $events         = Event::whereDate('event_date', '>', Carbon::today())->get();
         $articles       = Article::orderby('created_at')->limit(3)->get();

@@ -9,31 +9,30 @@
 	===============================
 */
 body {
-  background-color: #f1f2f3; }
+  background-color: white; 
+}
 
 /*Navbar*/
 nav .navbar-brand {
   font-size: 30px;
   font-weight: 700;
-  color: #fff; }
+  color: #2a406e; }
 
 .navbar-expand .navbar-nav .nav-link {
-  color: #fff;
+  color: #2a406e;
   padding: 0 17px; }
 
 .fq-header-wrapper {
   padding: 0 0;
-  background-color: #1b55e2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%232b50ed' cx='50' cy='0' r='50'/%3E%3Cg fill='%233154ea' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%233658e8' cx='50' cy='100' r='50'/%3E%3Cg fill='%233c5be5' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23415fe2' cx='50' cy='200' r='50'/%3E%3Cg fill='%234662df' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%234b66dc' cx='50' cy='300' r='50'/%3E%3Cg fill='%235069d9' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23546cd5' cx='50' cy='400' r='50'/%3E%3Cg fill='%23596fd2' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%235e72cf' cx='50' cy='500' r='50'/%3E%3Cg fill='%236275cb' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%236678c8' cx='50' cy='600' r='50'/%3E%3Cg fill='%236b7bc4' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f7ec0' cx='50' cy='700' r='50'/%3E%3Cg fill='%237381bc' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%237783b8' cx='50' cy='800' r='50'/%3E%3Cg fill='%237c86b4' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%238089b0' cx='50' cy='900' r='50'/%3E%3Cg fill='%23848bac' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23888ea8' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: contain; }
+  background-color: #e3f4fd; 
+}
   .fq-header-wrapper h1 {
     font-size: 46px;
     font-weight: 700;
-    color: #fff;
+    color:black;
     margin-bottom: 8px; }
   .fq-header-wrapper p {
-    color: #d3d3d3;
+    color:black;
     font-size: 14px;
     margin-bottom: 27px;
     line-height: 25px; }
@@ -44,10 +43,10 @@ nav .navbar-brand {
     font-weight: 600;
     font-size: 16px;
     background: transparent;
-    color: #fff; }
+    color: #e3f4fd; }
     .fq-header-wrapper button:hover {
       background-color: transparent;
-      color: #fff;
+      color: #2a406e;
       box-shadow: none; }
   .fq-header-wrapper .banner-img img {
     width: 582px;
