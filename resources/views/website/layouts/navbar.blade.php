@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{{ url("https://sekolahcode.com/") }}">About Us</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="index.html">Quotes</a>
@@ -19,8 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Questions</a>
                 </li> -->
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ url("https://sekolahcode.com/") }}">Contact Us</a>
+                </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="{{ url("https://github.com/SekolahCode/sucikanjiwa") }}">Want to Contribute ?</a>
                 </li>
             </ul>
         </div>
