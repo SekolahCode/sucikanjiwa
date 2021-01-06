@@ -1,10 +1,8 @@
-<center><h1>SucikanJiwa</h1></center>
+SucikanJiwa
 
-<center>
 ![](https://img.shields.io/github/stars/sekolahcode/sucikanjiwa) ![](https://img.shields.io/github/forks/sekolahcode/sucikanjiwa) ![](https://img.shields.io/github/tag/sekolahcode/sucikanjiwa) ![](https://img.shields.io/github/release/sekolahcode/sucikanjiwa) ![](https://img.shields.io/github/issues/sekolahcode/sucikanjiwa)
-</center>
 
-###Getting Started
+Getting Started
 
 First clone the repo. The next step follow command below
 
