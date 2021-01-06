@@ -76,7 +76,7 @@
                             <div class="widget-header">                                
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Beautiful Picture</h4> 
+                                        <h4>Mosque Picture</h4> 
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="col-lg-5">
                     <p class="timeline-title">Upcoming ..</p>
-                    <div class="timeline-list">
+                    <div class="timeline-list" style="height:400px !important; overflow-y:auto;">
                         @forelse ($upcomingEvents as $key => $event)
                             <div class="timeline-post-content">
                                 <div class="user-profile">
